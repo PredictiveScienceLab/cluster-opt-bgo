@@ -92,4 +92,10 @@ if __name__ == '__main__':
     print '> plotting the results'
     dyn = BFGS(molecule)
     dyn.run()
-    make_plots(bgo, molecule)
+    # Make the plots (set ``to_file`` to ``False`` for interactive plots)
+    # It writes ``ei.png``, ``energy.png`` and ``final_cluster.png``.
+    make_plots(bgo, molecule, to_file=True)
+    # Here are the Cartesian coordinates of all atoms:
+    X = molecule.get_positions()
+    # Here are the types of all atoms:
+    T = molecule.get_chemical_symbols()

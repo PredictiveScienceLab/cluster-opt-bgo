@@ -50,3 +50,29 @@ Includes routines that make the plots you see.
 * [pydes](./pydes):
 This is a Python module that implements BGO.
 It will be a separate fully functional module in the near future.
+
+Dependencies
+------------
+
+Before trying to use the code, you should install the following dependencies:
+* [Atomistic Simulations Environment (ASE)](https://wiki.fysik.dtu.dk/ase/)
+* [matplotlib](http://matplotlib.org)
+* [seaborn](http://stanford.edu/~mwaskom/software/seaborn/)
+* [GPy](https://github.com/SheffieldML/GPy)
+
+Installation
+------------
+
+There is nothing to install. You can just use the code once you enter the code
+directory. [pydes](./pydes) can be used as an independent python module if you
+add it to your PYTHONPATH. However, this is not necessary if all you want to
+do is run the demos.
+
+Runnings the demos
+------------------
+
+You can run [binary_molecule_optimization.py](./binary_molecule_optimization.py)
+and [cluster_optimization.py](./cluster_optimization.py) as usual python scripts.
+The first one, will create interactive figures.
+The second one will create figures at the very end.
+

@@ -19,16 +19,17 @@ import itertools
 __all__ = ['make_plots', 'plot_1d_callback']
 
 
-def make_plots(bgo, molecule):
+def make_plots(bgo, molecule, to_file=False):
     """
     Makes the demonstration plots.
     """
-    make_ei_plot(bgo)
-    make_energy_plot(bgo)
-    make_cluster_plot(bgo, molecule)
-    plt.show()
+    make_ei_plot(bgo, to_file)
+    make_energy_plot(bgo, to_file)
+    make_cluster_plot(bgo, molecule, to_file)
+    if not to_file:
+        plt.show()
 
-def make_ei_plot(bgo):
+def make_ei_plot(bgo, to_file):
     """
     Plots the evolution of the expected improvement as BGO runs.
     """
@@ -39,9 +40,12 @@ def make_ei_plot(bgo):
     ax.set_title('Evolution of expected improvement', fontsize=16)
     ax.set_xlabel('Iteration', fontsize=16)
     ax.set_ylabel('EI', fontsize=16)
+    if to_file:
+        plt.savefig('ei.png')
+        plt.close(fig)
 
 
-def make_energy_plot(bgo):
+def make_energy_plot(bgo, to_file):
     """
     Plots the evolution of the energy as BGO runs.
     """
@@ -51,6 +55,9 @@ def make_energy_plot(bgo):
     ax.set_title('Evolution of minimum observed energy', fontsize=16)
     ax.set_xlabel('Iteration', fontsize=16)
     ax.set_ylabel('Energy', fontsize=16)
+    if to_file:
+        plt.savefig('energy.png')
+        plt.close(fig)
 
 
 def draw_sphere(ax, center, radius=0.2, color='r'):
@@ -65,7 +72,7 @@ def draw_sphere(ax, center, radius=0.2, color='r'):
         linewidth=0)
 
 
-def make_cluster_plot(bgo, molecule):
+def make_cluster_plot(bgo, molecule, to_file):
     """
     Plots minimum energy cluster fond by BGO.
     """
@@ -81,6 +88,9 @@ def make_cluster_plot(bgo, molecule):
                                molecule.get_chemical_symbols()):
         draw_sphere(ax, x, color=CPK_COLORS[s])
     ax.set_aspect('equal', 'datalim')
+    if to_file:
+        plt.savefig('final_cluster.png')
+        plt.close(fig)
 
 
 def plot_1d_callback(bgo):
