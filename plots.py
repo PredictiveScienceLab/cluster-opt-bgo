@@ -42,7 +42,9 @@ def make_ei_plot(bgo, molecule, to_file):
     ax.set_xlabel('Iteration', fontsize=16)
     ax.set_ylabel('EI', fontsize=16)
     if to_file:
-        plt.savefig(os.path.join('results', 'ei_' + molecule.get_chemical_formula() + '.png'))
+        figname = os.path.join('results', 'ei_' + molecule.get_chemical_formula() + '.png')
+        print '> writing:', figname
+        plt.savefig(figname)
         plt.close(fig)
 
 
@@ -57,7 +59,9 @@ def make_energy_plot(bgo, molecule, to_file):
     ax.set_xlabel('Iteration', fontsize=16)
     ax.set_ylabel('Energy', fontsize=16)
     if to_file:
-        plt.savefig(os.path.join('results', 'energy_' + molecule.get_chemical_formula() + '.png'))
+        figname = os.path.join('results', 'energy_' + molecule.get_chemical_formula() + '.png')
+        print '> writing:', figname
+        plt.savefig(figname)
         plt.close(fig)
 
 
@@ -90,14 +94,19 @@ def make_cluster_plot(bgo, molecule, to_file):
         draw_sphere(ax, x, color=CPK_COLORS[s])
     ax.set_aspect('equal', 'datalim')
     if to_file:
-        plt.savefig(os.path.join('results', 'final_cluster_' + molecule.get_chemical_formula() + '.png'))
+        figname = os.path.join('results', 'final_cluster_' + molecule.get_chemical_formula() + '.png')
+        print '> writing:', figname
+        plt.savefig(figname)
         plt.close(fig)
 
 
-def plot_1d_callback(bgo):
+__count_callback = 0
+def plot_1d_callback(bgo, molecule, interactive):
     """
     Plots the evolution of BGO for the 1D case.
     """
+    global __count_callback
+    __count_callback += 1
     fig, ax = plt.subplots()
     ax.set_ylabel('$V(r)$', fontsize=16)
     ax.set_xlabel('$r$', fontsize=16)
@@ -114,4 +123,12 @@ def plot_1d_callback(bgo):
     ax.plot(xx, q[0], 'b', label='Mean prediction')
     ax.fill_between(xx, q[1].flatten(), q[2].flatten(), color='blue', alpha=0.25)
     ax2.plot(bgo.X_design, bgo.af / bgo.af_values[0], 'g.')
-    plt.show(block=True)
+    if interactive:
+        plt.show(block=True)
+    else:
+        figname = os.path.join('results', 'bgo_' + 
+                                          molecule.get_chemical_formula()+ '_' 
+                                          + str(__count_callback).zfill(2) 
+                                          + '.png')
+        print '> writing:', figname
+        plt.savefig(figname)

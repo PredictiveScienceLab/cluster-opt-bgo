@@ -86,13 +86,21 @@ if __name__ == '__main__':
     try:
         bgo.optimize(max_it=max_it, tol=tol,
                      callback_func=plot_1d_callback,
-                     callback_func_args=(bgo,),
+                     callback_func_args=(bgo,
+                                         molecule,
+                                         False),   # Set to True for
+                                                   # for interactive plots
                      add_at_least=1)
     except KeyboardInterrupt:
         print '> keyboard interruption'
     X_best = bgo.best_masked_design
     molecule.set_positions(X_best)
-    print '> plotting the results'
+    # Perform a BFGS optimization for fine tuning.
+    print '> BFGS optimization for fine tuning for final structure'
     dyn = BFGS(molecule)
     dyn.run()
-    make_plots(bgo, molecule)
+    print '> plotting the results'
+    # Make the plots (set ``to_file`` to ``False`` for interactive plots)
+    # It writes ``ei.png``, ``energy.png`` and ``final_cluster.png``.
+    # and puts them in the ``results`` directory.
+    make_plots(bgo, molecule, to_file=True)

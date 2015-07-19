@@ -89,9 +89,11 @@ if __name__ == '__main__':
         print '> keyboard interruption'
     X_best = bgo.best_masked_design
     molecule.set_positions(X_best)
-    print '> plotting the results'
+    # Perform a BFGS optimization for fine tuning.
+    print '> BFGS optimization for fine tuning for final structure'
     dyn = BFGS(molecule)
     dyn.run()
+    print '> plotting the results'
     # Make the plots (set ``to_file`` to ``False`` for interactive plots)
     # It writes ``ei.png``, ``energy.png`` and ``final_cluster.png``.
     # and puts them in the ``results`` directory.
