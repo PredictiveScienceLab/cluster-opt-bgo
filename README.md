@@ -23,11 +23,30 @@ calculator,
 since it is built in ASE and, therefore, it does not require external, 
 potentially proprietary, software.
 As a result, **do not expect to get the real minimum energies and/or structures**.
+EMT works for the following types of atoms: H, C, N, O, Al, Ni, Cu, Pd, Ag, Pt
+and Au.
+It also works with H, C, N and O, but the parameters are wrong.
 
 Contents
 --------
 
 We give a brief description of what is in each file/folder of this code.
 For more details, you are advised to look at the extensive comments.
-* [binary_molecule_optimization.py](./binary_molecule_optimization.py): This is a 
-test.
+* [binary_molecule_optimization.py](./binary_molecule_optimization.py):
+Demonstrates how to use BGO to find the bond length of a binary molecule.
+
+* [cluster_optimization.py](./cluster_optimization.py):
+Demonstrates how to use BGO to find the minimum energy structure of an 
+arbitrary cluster.
+
+* [geometry.py](./geometry.py):
+Includes routines that allow the, almost, uniform sampling of clusters given
+bounds on the distance matrix, i.e., given a minimum and a maximum distance
+between two arbitrary atoms.
+
+* [plots.py](./plots.py):
+Includes routines that make the plots you see.
+
+* [pydes](./pydes):
+This is a Python module that implements BGO.
+It will be a separate fully functional module in the near future.
