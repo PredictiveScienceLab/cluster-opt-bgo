@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import seaborn as sns
 import itertools
+import os
 
 
 __all__ = ['make_plots', 'plot_1d_callback']
@@ -23,13 +24,13 @@ def make_plots(bgo, molecule, to_file=False):
     """
     Makes the demonstration plots.
     """
-    make_ei_plot(bgo, to_file)
-    make_energy_plot(bgo, to_file)
+    make_ei_plot(bgo, molecule, to_file)
+    make_energy_plot(bgo, molecule, to_file)
     make_cluster_plot(bgo, molecule, to_file)
     if not to_file:
         plt.show()
 
-def make_ei_plot(bgo, to_file):
+def make_ei_plot(bgo, molecule, to_file):
     """
     Plots the evolution of the expected improvement as BGO runs.
     """
@@ -41,11 +42,11 @@ def make_ei_plot(bgo, to_file):
     ax.set_xlabel('Iteration', fontsize=16)
     ax.set_ylabel('EI', fontsize=16)
     if to_file:
-        plt.savefig('ei.png')
+        plt.savefig(os.path.join('results', 'ei_' + molecule.get_chemical_formula() + '.png'))
         plt.close(fig)
 
 
-def make_energy_plot(bgo, to_file):
+def make_energy_plot(bgo, molecule, to_file):
     """
     Plots the evolution of the energy as BGO runs.
     """
@@ -56,7 +57,7 @@ def make_energy_plot(bgo, to_file):
     ax.set_xlabel('Iteration', fontsize=16)
     ax.set_ylabel('Energy', fontsize=16)
     if to_file:
-        plt.savefig('energy.png')
+        plt.savefig(os.path.join('results', 'energy_' + molecule.get_chemical_formula() + '.png'))
         plt.close(fig)
 
 
@@ -89,7 +90,7 @@ def make_cluster_plot(bgo, molecule, to_file):
         draw_sphere(ax, x, color=CPK_COLORS[s])
     ax.set_aspect('equal', 'datalim')
     if to_file:
-        plt.savefig('final_cluster.png')
+        plt.savefig(os.path.join('results', 'final_cluster_' + molecule.get_chemical_formula() + '.png'))
         plt.close(fig)
 
 

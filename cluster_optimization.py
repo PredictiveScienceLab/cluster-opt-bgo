@@ -94,6 +94,7 @@ if __name__ == '__main__':
     dyn.run()
     # Make the plots (set ``to_file`` to ``False`` for interactive plots)
     # It writes ``ei.png``, ``energy.png`` and ``final_cluster.png``.
+    # and puts them in the ``results`` directory.
     make_plots(bgo, molecule, to_file=True)
     # Here are the Cartesian coordinates of all atoms:
     X = molecule.get_positions()
