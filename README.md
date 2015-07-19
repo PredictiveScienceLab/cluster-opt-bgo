@@ -29,5 +29,5 @@ Contents
 
 We give a brief description of what is in each file/folder of this code.
 For more details, you are advised to look at the extensive comments.
-* [binary_cluster_optimization.py](./binary_cluster_optimization.py): This is a 
+* [binary_molecule_optimization.py](./binary_molecule_optimization.py): This is a 
 test.
