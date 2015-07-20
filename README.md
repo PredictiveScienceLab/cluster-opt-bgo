@@ -77,3 +77,22 @@ The first one, will create interactive figures.
 The second one will create figures at the very end.
 
 ### Binary molecule optimization
+These are the results of [binary_molecule_optimization.py](./binary_molecule_optimization.py)
+when running it for O2.
+
+* Iteration 1
+![Alt text](./results/bgo_O2_01.png)
+
+* Iteration 2
+![Alt text](./results/bgo_O2_02.png)
+
+* Iteration 3
+![Alt text](./results/bgo_O2_03.png)
+
+* Iteration 4
+![Alt text](./results/bgo_O2_04.png)
+
+* Iteration 5
+![Alt text](./results/bgo_O2_05.png)
+
+
