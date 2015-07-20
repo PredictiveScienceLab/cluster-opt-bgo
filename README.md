@@ -78,10 +78,23 @@ The second one will create figures at the very end.
 
 ### Binary molecule optimization
 These are the results of [binary_molecule_optimization.py](./binary_molecule_optimization.py)
-when running it for O2:
+when ran it for O2:
 
 ![Alt text](./results/bgo_O2.gif)
 
 ![Alt text](./results/ei_O2.png)
 
 ![Alt text](./results/energy_O2.png)
+
+![Alt text](./results/final_cluster_O2.png)
+
+
+## Cluster Optimization
+These are the results of [cluster_optimization.py](./cluster_optimization.py)
+when ran for H2O:
+
+![Alt text](./results/ei_H2O.png)
+
+![Alt text](./results/energy_H2O.png)
+
+![Alt text](./results/final_cluster_H2O.png)
