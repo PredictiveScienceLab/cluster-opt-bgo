@@ -82,6 +82,6 @@ when running it for O2:
 
 ![Alt text](./results/bgo_O2.gif)
 
-![Alt text](./results/ei.png)
+![Alt text](./results/ei_O2.png)
 
-![Alt text](./results/energy.png)
+![Alt text](./results/energy_O2.png)
