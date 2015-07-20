@@ -81,7 +81,7 @@ These are the results of [binary_molecule_optimization.py](./binary_molecule_opt
 when running it for O2.
 
 * Iteration 1
-![Alt text](./results/bgo_O2_01.png)
+![Alt text](./results/bgo_O2.gif)
 
 * Iteration 2
 ![Alt text](./results/bgo_O2_02.png)
@@ -94,5 +94,11 @@ when running it for O2.
 
 * Iteration 5
 ![Alt text](./results/bgo_O2_05.png)
+
+* Iteration 6
+![Alt text](./results/bgo_O2_06.png)
+
+* Iteration 7
+![Alt text](./results/bgo_O2_07.png)
 
 
