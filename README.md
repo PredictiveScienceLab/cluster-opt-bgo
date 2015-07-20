@@ -76,3 +76,4 @@ and [cluster_optimization.py](./cluster_optimization.py) as usual python scripts
 The first one, will create interactive figures.
 The second one will create figures at the very end.
 
+### Binary molecule optimization
